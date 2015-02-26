@@ -37,7 +37,8 @@ public class Parser {
 	public Entry parse(String path) throws InvalidXmlException, IOException, SAXException, ParserConfigurationException {
 		DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = domFactory.newDocumentBuilder();
-		return toEntry(builder.parse(path));
+		Document document = builder.parse(path);
+		return toEntry(document);
 
 	}
 
@@ -82,7 +83,8 @@ public class Parser {
 		return new Entry(content, date);
 	}
 
-	private static Date toDate(Element dateNode, String dateFormatString) throws InvalidXmlException {
+	private static Date toDate(Element dateNode, 
+							   String dateFormatString) throws InvalidXmlException {
 		DateFormat formatter = new SimpleDateFormat(dateFormatString);
 		String dateString = dateNode.getTextContent();
 		try {
@@ -93,7 +95,8 @@ public class Parser {
 		}
 	}
 
-	private static String toContent(Element contentNode, int maxContentSize) throws InvalidXmlException {
+	private static String toContent(Element contentNode, 
+									int maxContentSize) throws InvalidXmlException {
 		String textContent = contentNode.getTextContent();
 		if (textContent.length() > maxContentSize) {
 			throw new InvalidXmlException(contentNode.getOwnerDocument(),
@@ -103,14 +106,17 @@ public class Parser {
 	}
 
 	static class InvalidXmlException extends Exception {
-		public InvalidXmlException(Document document, String message) {
+		public InvalidXmlException(Document document, 
+								   String message) {
 			super(document != null ? document.getLocalName() + " isn't right:\n" : "" + 
 					message);
 		}
 	}
 	
 	static enum NodeName {
-		ENTRY("Entry"), CONTENT("content"), DATE("creationDate");
+		ENTRY("Entry"), 
+		CONTENT("content"), 
+		DATE("creationDate");
 		
 		private final String name;
 		
@@ -125,7 +131,8 @@ public class Parser {
 					return nodeName;
 				}
 			}
-			throw new InvalidXmlException(element.getOwnerDocument(), name + " is not a valid XML element name!");
+			throw new InvalidXmlException(element.getOwnerDocument(), 
+					name + " is not a valid XML element name!");
 		}
 
 		private String getName() {

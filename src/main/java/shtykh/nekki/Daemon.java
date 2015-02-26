@@ -36,7 +36,7 @@ public class Daemon {
 			File input = new File(INPUT_PATH);
 			if (input.isDirectory()) {
 				for (File file : input.listFiles()) {
-					Runnable worker = new WorkerThread(file.getAbsolutePath(), DONE_PATH, BAD_PATH, parser);
+					Runnable worker = new WorkerThread(file, DONE_PATH, BAD_PATH, parser);
 					executor.execute(worker);
 				}
 			}

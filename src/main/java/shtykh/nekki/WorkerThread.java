@@ -10,27 +10,24 @@ import java.io.File;
  */
 public class WorkerThread implements Runnable {
 	final static Logger log = LoggerFactory.getLogger(WorkerThread.class);
-	private String filePath;
+	private File file;
 	private Parser parser;
 	private String doneDirectory;
 	private String badFilesDirectory;
 
-	public WorkerThread(String filePath, String doneDirectory, String badFilesDirectory, Parser parser){
-		this.badFilesDirectory = badFilesDirectory;
-		this.filePath = filePath;
+	public WorkerThread(File file, 
+						String doneDirectory, 
+						String badFilesDirectory, 
+						Parser parser){
+		this.file = file;
 		this.doneDirectory = doneDirectory;
+		this.badFilesDirectory = badFilesDirectory;
 		this.parser = parser;
 	}
 
 	@Override
 	public void run() {
-		log.info(filePath + " Start");
-		processFile();
-		log.info(filePath + " End");
-	}
-
-	private void processFile() {
-		File file = new File(filePath);
+		log.info(file + " Start");
 		try {
 			Entry entry = parser.parse(file.getAbsolutePath());
 			log.info(entry.toString() + " parsed");
@@ -45,6 +42,7 @@ public class WorkerThread implements Runnable {
 			}
 			throw new RuntimeException(e);
 		}
+		log.info(file + " End");
 	}
 
 	private void moveToDirectory(File file, String directory) {
@@ -55,6 +53,6 @@ public class WorkerThread implements Runnable {
 
 	@Override
 	public String toString(){
-		return this.filePath;
+		return "Thread_" + this.file;
 	}
 }
