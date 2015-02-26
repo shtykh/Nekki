@@ -43,29 +43,9 @@ public class Entry implements Serializable {
 	@Type(type = "org.hibernate.type.DateType")
 	private Date creationDate;
 
-	public Entry() {
-
-	}
-
 	public Entry(String content, Date creationDate) {
 		this.content = content;
 		this.creationDate = creationDate;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
 	}
 
 	@Override

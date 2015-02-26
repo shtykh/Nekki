@@ -28,6 +28,7 @@ public class Daemon {
 	}
 
 	public static void main(String[] args) {
+		log.info("Daemon is started");
 		BasicConfigurator.configure();
 		Parser parser = new Parser(DEFAULT_DATE_FORMAT, DEFAULT_MAX_CONTENT_SIZE);
 		ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
@@ -42,7 +43,7 @@ public class Daemon {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				log.info(e.getMessage());
 			}
 		}
 	}

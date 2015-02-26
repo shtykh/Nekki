@@ -2,7 +2,6 @@ package shtykh.nekki;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
 
 import java.io.File;
 
@@ -25,22 +24,25 @@ public class WorkerThread implements Runnable {
 
 	@Override
 	public void run() {
-		log.info(Thread.currentThread().getName()+" Start. File = "+ filePath);
+		log.info(filePath + " Start");
 		processFile();
-		log.info(Thread.currentThread().getName()+" End.");
+		log.info(filePath + " End");
 	}
 
 	private void processFile() {
 		File file = new File(filePath);
 		try {
-			Document document = Parser.parse(file.getAbsolutePath());
-			Entry entry = parser.toEntry(document);
-			log.info(entry.toString());
+			Entry entry = parser.parse(file.getAbsolutePath());
+			log.info(entry.toString() + " parsed");
 			moveToDirectory(file, doneDirectory);
-
 		} catch (Exception e) {
-			moveToDirectory(file, badFilesDirectory);
 			log.error(e.getMessage());
+			try {
+				moveToDirectory(file, badFilesDirectory);
+			} catch (Exception e1) {
+				log.error(e1.getMessage());
+				throw new RuntimeException(e.getMessage() + "\n" + e1.getMessage(), e);
+			}
 			throw new RuntimeException(e);
 		}
 	}

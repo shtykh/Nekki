@@ -6,6 +6,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -33,19 +34,11 @@ public class Parser {
 		this.maxContentSize = maxContentSize;
 	}
 
-	public static Document parse(String path) {
+	public Entry parse(String path) throws InvalidXmlException, IOException, SAXException, ParserConfigurationException {
 		DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder builder;
-		try {
-			builder = domFactory.newDocumentBuilder();
-			return builder.parse(path);
-		} catch (ParserConfigurationException e) {
-			throw new RuntimeException(e);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		} catch (org.xml.sax.SAXException e) {
-			throw new RuntimeException(e);
-		}
+		DocumentBuilder builder = domFactory.newDocumentBuilder();
+		return toEntry(builder.parse(path));
+
 	}
 
 	public Entry toEntry(Document document) throws InvalidXmlException{
