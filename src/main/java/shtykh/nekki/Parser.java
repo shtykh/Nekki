@@ -1,5 +1,7 @@
 package shtykh.nekki;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -22,7 +24,7 @@ import static shtykh.nekki.Parser.NodeName.getNodeName;
  * Created by shtykh on 24/02/15.
  */
 public class Parser {
-
+	final static Logger log = LoggerFactory.getLogger(Parser.class);
 	private final String dateFormat;
 	private final int maxContentSize;
 

@@ -1,5 +1,7 @@
 package shtykh.nekki;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
 import java.io.File;
@@ -8,6 +10,7 @@ import java.io.File;
  * Created by shtykh on 26/02/15.
  */
 public class WorkerThread implements Runnable {
+	final static Logger log = LoggerFactory.getLogger(WorkerThread.class);
 	private String filePath;
 	private Parser parser;
 	private String doneDirectory;
@@ -22,9 +25,9 @@ public class WorkerThread implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println(Thread.currentThread().getName()+" Start. File = "+ filePath);
+		log.info(Thread.currentThread().getName()+" Start. File = "+ filePath);
 		processFile();
-		System.out.println(Thread.currentThread().getName()+" End.");
+		log.info(Thread.currentThread().getName()+" End.");
 	}
 
 	private void processFile() {
@@ -32,11 +35,12 @@ public class WorkerThread implements Runnable {
 		try {
 			Document document = Parser.parse(file.getAbsolutePath());
 			Entry entry = parser.toEntry(document);
-			System.out.println(entry);
+			log.info(entry.toString());
 			moveToDirectory(file, doneDirectory);
 
 		} catch (Exception e) {
 			moveToDirectory(file, badFilesDirectory);
+			log.error(e.getMessage());
 			throw new RuntimeException(e);
 		}
 	}
