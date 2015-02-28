@@ -6,7 +6,7 @@
 
  ***************        END-STANDARD-COPYRIGHT       ***************/
 
-package shtykh.nekki;
+package shtykh.nekki.db;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
@@ -14,17 +14,15 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
+import java.io.File;
 import java.util.Date;
 import java.util.UUID;
 
 
 @Entity
-@Table(name = "entries")
+@Table(name = "entry")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Entry implements Serializable {
-
-	private static final long serialVersionUID = -7700157318332408092L;
+public class Entry {
 
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
@@ -42,6 +40,8 @@ public class Entry implements Serializable {
 	@Column(name = "creationDate", nullable = false)
 	@Type(type = "org.hibernate.type.DateType")
 	private Date creationDate;
+	
+	private transient File file;
 
 	public Entry(String content, Date creationDate) {
 		this.content = content;
@@ -51,5 +51,13 @@ public class Entry implements Serializable {
 	@Override
 	public String toString() {
 		return "Entry{content=" + content + ", creationDate=" + creationDate + "}";
+	}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
+
+	public File getFile() {
+		return file;
 	}
 }

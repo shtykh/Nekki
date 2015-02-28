@@ -1,31 +1,31 @@
 package shtykh.nekki;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import shtykh.nekki.db.Entry;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static shtykh.nekki.Parser.NodeName.DATE;
-import static shtykh.nekki.Parser.NodeName.ENTRY;
-import static shtykh.nekki.Parser.NodeName.getNodeName;
+import static shtykh.nekki.Parser.NodeName.*;
 
 /**
  * Created by shtykh on 24/02/15.
  */
 public class Parser {
-	final static Logger log = LoggerFactory.getLogger(Parser.class);
+	final static Logger log = Logger.getLogger(Parser.class);
 	private final String dateFormat;
 	private final int maxContentSize;
 
@@ -34,10 +34,10 @@ public class Parser {
 		this.maxContentSize = maxContentSize;
 	}
 
-	public Entry parse(String path) throws InvalidXmlException, IOException, SAXException, ParserConfigurationException {
+	public Entry parse(File file) throws InvalidXmlException, IOException, SAXException, ParserConfigurationException {
 		DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = domFactory.newDocumentBuilder();
-		Document document = builder.parse(path);
+		Document document = builder.parse(new InputSource(file.getAbsolutePath()));
 		return toEntry(document);
 
 	}
@@ -91,7 +91,7 @@ public class Parser {
 			return formatter.parse(dateString);
 		} catch (ParseException e) {
 			throw new InvalidXmlException(dateNode.getOwnerDocument(),
-					"Date \"" + DATE + "\" parsing fail");
+					e.getMessage());
 		}
 	}
 
@@ -108,7 +108,7 @@ public class Parser {
 	static class InvalidXmlException extends Exception {
 		public InvalidXmlException(Document document, 
 								   String message) {
-			super(document != null ? document.getLocalName() + " isn't right:\n" : "" + 
+			super((document != null ? document.getDocumentURI() + " isn't right:\n" : "") +
 					message);
 		}
 	}
