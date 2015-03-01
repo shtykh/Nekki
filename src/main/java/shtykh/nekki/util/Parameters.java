@@ -35,9 +35,9 @@ public class Parameters {
 		}
 		try {
 			properties = loadProperties("nekki.properties");
-			INPUT = properties.getProperty("INPUT", INPUT);
-			DONE = properties.getProperty("DONE", DONE);
-			BAD = properties.getProperty("BAD", BAD);
+			INPUT = properties.getProperty("INPUT_PATH", INPUT);
+			DONE = properties.getProperty("DONE_PATH", DONE);
+			BAD = properties.getProperty("BAD_PATH", BAD);
 
 			DATE_FORMAT = properties.getProperty("DATE_FORMAT", DATE_FORMAT);
 			THREAD_POOL_SIZE = Integer.parseInt(properties.getProperty("THREAD_POOL_SIZE", String.valueOf(THREAD_POOL_SIZE)));
