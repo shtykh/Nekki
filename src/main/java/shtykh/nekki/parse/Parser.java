@@ -1,4 +1,4 @@
-package shtykh.nekki;
+package shtykh.nekki.parse;
 
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
@@ -19,7 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static shtykh.nekki.Parser.NodeName.*;
+import static shtykh.nekki.parse.Parser.NodeName.*;
 
 /**
  * Created by shtykh on 24/02/15.

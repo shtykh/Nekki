@@ -1,15 +1,15 @@
-package shtykh.nekki;
+package shtykh.nekki.db;
 
 import org.apache.log4j.Logger;
-import shtykh.nekki.db.Entry;
-import shtykh.nekki.db.EntryService;
+import shtykh.nekki.util.FileMover;
+import shtykh.nekki.util.Receiver;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import static shtykh.nekki.FileMover.Destination.BAD;
-import static shtykh.nekki.FileMover.moveFileToDirectory;
+import static shtykh.nekki.util.FileMover.Destination.BAD;
+import static shtykh.nekki.util.FileMover.moveFileToDirectory;
 
 /**
  * Created by shtykh on 28/02/15.

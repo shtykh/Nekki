@@ -6,4 +6,4 @@ psql nekki -c "CREATE TABLE IF NOT EXISTS entry  (
 	content VARCHAR(1024) NOT NULL,
 	creationDate DATE NOT NULL,
 	PRIMARY KEY (id)
-);"
+)"
