@@ -6,7 +6,7 @@ Download <a href="https://github.com/shtykh/Nekki/blob/master/Nekki-1.0.jar">exe
 
 The application assumes you have PostgreSQL installed and also have a postgres database and postgres superuser in there.
 
-Use init.sh (init.bat) script inside the jar to create user *nekki_user*, database *nekki* and table *entry* for application needs. If you allready have it, you gonna have bad time.
+Use init.sh (init.bat) script inside the jar to create user *shtykhnekki_user*, database *shtykhnekki* and table *entry* in it for application needs. If you allready have it, you gonna have bad time.
 
 
 # Input file format
