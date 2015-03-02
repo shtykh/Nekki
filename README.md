@@ -30,7 +30,7 @@ There are two *.properties* files inside the jar: *log4j.properties* (see http:/
 | ------------- | ----------- |--------------|
 | THREAD_POOL_SIZE      | Number of Threads which will parse xml files simultaniously| 20|
 | DATE_FORMAT     | Format for *creationDate* value in input files | yyyy-MM-dd HH:mm:ss|
-| MAX_CONTENT_SIZE     | Maximum allowed symbols number in *content* string in input files | files/input/ |
+| MAX_CONTENT_SIZE     | Maximum allowed symbols number in *content* string in input files | 1024 |
 | INPUT_PATH     | Path for input directory    | files/input/|
 | DONE_PATH     | Path for processed successfully files directory     | files/done/|
 | BAD_PATH     | Path for processed unsuccessfully files directory      | files/bad/|
