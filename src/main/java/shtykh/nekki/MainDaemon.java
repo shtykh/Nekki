@@ -24,7 +24,6 @@ public class MainDaemon {
 		Parser parser = new Parser(DATE_FORMAT, MAX_CONTENT_SIZE);
 		EntryPersister entryPersister = new EntryPersister();
 		ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		entryPersister.deleteAll();
 		try{
 			File input = new File(INPUT);
 			while (true) {
