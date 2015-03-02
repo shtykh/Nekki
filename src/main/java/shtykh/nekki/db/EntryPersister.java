@@ -46,4 +46,9 @@ public class EntryPersister implements Receiver<Entry> {
 			throw new RuntimeException(e);
 		}
 	}
+
+	public void deleteAll() {
+		log.info("Delete all entries");
+		entryService.deleteAll();
+	}
 }

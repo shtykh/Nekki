@@ -47,6 +47,10 @@ public class Entry {
 		this.content = content;
 		this.creationDate = creationDate;
 	}
+	
+	public Entry(){
+
+	}
 
 	@Override
 	public String toString() {

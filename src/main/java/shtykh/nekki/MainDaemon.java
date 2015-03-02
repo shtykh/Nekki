@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import shtykh.nekki.db.EntryPersister;
 import shtykh.nekki.parse.Parser;
 import shtykh.nekki.parse.ParserThread;
+import shtykh.nekki.util.Parameters;
 
 import java.io.File;
 import java.util.concurrent.ExecutorService;
@@ -18,11 +19,12 @@ public class MainDaemon {
 	final static Logger log = Logger.getLogger(MainDaemon.class);
 	
 	public static void main(String[] args) {
-		init();
+		Parameters.init();
 		log.info("Daemon is started");
 		Parser parser = new Parser(DATE_FORMAT, MAX_CONTENT_SIZE);
 		EntryPersister entryPersister = new EntryPersister();
 		ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+		entryPersister.deleteAll();
 		try{
 			File input = new File(INPUT);
 			while (true) {
