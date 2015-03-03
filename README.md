@@ -12,7 +12,7 @@ The application assumes you to have:<br>
 
 #Instalation
 1) Download <a href="https://github.com/shtykh/Nekki/releases/download/v.1.0/Nekki-1.0.jar">executable jar</a> from project.<br>
-2) Extract *init.sh*(*init.bat* in windows) file from the jar.<br>
+2) Extract *init.sh*(*init.bat* in windows) file from the jar. Or download it <a href="https://github.com/shtykh/Nekki/tree/master/src/main/resources">from here</a><br>
 3) Run *init.sh*(*init.bat* in windows) to create user *shtykhnekki_user*, database *shtykhnekki* and table *entry* in it for application needs (I really hope you did not name objects in your database so strange).<br>
 4) You are ready to launch jar via <code>java -jar jarname.jar<code><br>
 
