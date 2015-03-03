@@ -1,5 +1,5 @@
 # Nekki
-The application monitors the input directory for files in specified format (see "Input file format" section) and save its content to a database.
+The application monitors the input directory for files in specified format (see <a href ="https://github.com/shtykh/Nekki#input-file-format">"Input file format" section</a>) and save its content to a database.
 
 #Disposition
 The application assumes you to have:<br>
