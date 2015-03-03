@@ -1,7 +1,7 @@
-# Nekki
+# Description
 The application monitors the input directory for files in specified format (see <a href ="https://github.com/shtykh/Nekki#input-file-format">"Input file format" section</a>) and saves its content to a database.
 
-#Disposition
+# Disposition
 The application requires:<br>
 1) PostgreSQL installed<br>
 2) *postgres* database and *postgres* superuser in there<br>
@@ -10,7 +10,7 @@ The application requires:<br>
 <code>export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH</code> in unix command line.<br>
 4) PostgreSQL server running at localhost's standart port (5432)
 
-#Installation
+# Installation
 1) Download executable jar <a href="https://github.com/shtykh/Nekki/releases/download/v.1.0/Nekki-1.0.jar"> from here</a><br>
 2) Extract *init.sh*(*init.bat* in windows) file from the jar. Or download it <a href="https://github.com/shtykh/Nekki/tree/master/src/main/resources">from here</a><br>
 3) Run *init.sh*(*init.bat* in windows) to create user *shtykhnekki_user*, database *shtykhnekki* and table *entry* in it for application needs (I really hope you did not name objects in your database so strange).<br>
