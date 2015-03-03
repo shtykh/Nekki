@@ -2,18 +2,19 @@
 The application monitors the input directory for files in specified format (see "Input file format" section) and save its content to a database.
 
 #Disposition
-The application assumes you to have: <br>
-1) PostgreSQL installed <br>
-2) *postgres* database and *postgres* superuser in there <br>
-3) PostgreSQL bin directory added to system PATH variable e.g. <br>
-<code>set PATH=C:\Program Files\PostgreSQL\9.4\bin;%PATH%</code> in windows command line or <br>
+The application assumes you to have:<br>
+1) PostgreSQL installed<br>
+2) *postgres* database and *postgres* superuser in there<br>
+3) PostgreSQL bin directory added to system PATH variable e.g.<br>
+<code>set PATH=C:\Program Files\PostgreSQL\9.4\bin;%PATH%</code> in windows command line or<br>
 <code>export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH</code> in unix command line.<br>
 4) PostgreSQL server is running at localhost's standart port (5432)
 
 #Instalation
-1) Download <a href="https://github.com/shtykh/Nekki/blob/master/Nekki-1.0.jar">executable jar</a> from project. <br>
-2) Extract *init.sh*(*init.bat* in windows) and *init.sql* files <ins>to the same</ins> directory. 
-3) Run *init.sh*(*init.bat* in windows) to create user *shtykhnekki_user*, database *shtykhnekki* and table *entry* in it for application needs (I really hope you did not name objects in your database so strange).
+1) Download <a href="https://github.com/shtykh/Nekki/blob/master/Nekki-1.0.jar">executable jar</a> from project.<br>
+2) Extract *init.sh*(*init.bat* in windows) file from the jar.<br>
+3) Run *init.sh*(*init.bat* in windows) to create user *shtykhnekki_user*, database *shtykhnekki* and table *entry* in it for application needs (I really hope you did not name objects in your database so strange).<br>
+4) You are ready to launch jar via <code>java -jar jarname.jar<code><br>
 
 # Input file format
 ```xml
