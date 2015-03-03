@@ -13,7 +13,7 @@ The application requires:<br>
 # Installation
 1) Download executable jar <a href="https://github.com/shtykh/Nekki/releases/download/v.1.0/Nekki-1.0.jar"> from here</a><br>
 2) Extract *init.sh*(*init.bat* in windows) file from the jar. Or download it <a href="https://github.com/shtykh/Nekki/tree/master/src/main/resources">from here</a><br>
-3) Run *init.sh*(*init.bat* in windows) to create user *shtykhnekki_user*, database *shtykhnekki* and table *entry* in it for application needs (I really hope you did not name objects in your database so strange).<br>
+3) Run *init.sh*(*init.bat* in windows) to create user *shtykhnekki_user*, database *shtykhnekki* and table *entry* in it for application needs (I really hope you did not name objects in your database so strange, otherwise <a href ="http://rs1img.memecdn.com/if-you-forget-to-put-text-on-your-meme-your-gonna-have-a-bad-time_o_834474.jpg">you're gonna have bad time</a>).<br>
 4) You are ready to launch jar via <code>java -jar jarname.jar<code><br>
 
 # Input file format
