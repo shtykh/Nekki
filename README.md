@@ -1,14 +1,14 @@
 # Nekki
-The application monitors the input directory for files in specified format (see <a href ="https://github.com/shtykh/Nekki#input-file-format">"Input file format" section</a>) and save its content to a database.
+The application monitors the input directory for files in specified format (see <a href ="https://github.com/shtykh/Nekki#input-file-format">"Input file format" section</a>) and saves its content to a database.
 
 #Disposition
-The application assumes you to have:<br>
+The application requires:<br>
 1) PostgreSQL installed<br>
 2) *postgres* database and *postgres* superuser in there<br>
 3) PostgreSQL bin directory added to system PATH variable e.g.<br>
 <code>set PATH=C:\Program Files\PostgreSQL\9.4\bin;%PATH%</code> in windows command line or<br>
 <code>export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH</code> in unix command line.<br>
-4) PostgreSQL server is running at localhost's standart port (5432)
+4) PostgreSQL server running at localhost's standart port (5432)
 
 #Instalation
 1) Download <a href="https://github.com/shtykh/Nekki/releases/download/v.1.0/Nekki-1.0.jar">executable jar</a> from project.<br>
