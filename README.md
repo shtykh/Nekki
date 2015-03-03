@@ -1,25 +1,27 @@
 # Nekki
 The application monitors the input directory for files in specified format (see "Input file format" section) and save its content to a database.
 
+#Disposition
+The application assumes you to have: <br>
+1) PostgreSQL installed <br>
+2) *postgres* database and *postgres* superuser in there <br>
+3) PostgreSQL bin directory added to system PATH variable e.g. <br>
+<code>set PATH=C:\Program Files\PostgreSQL\9.4\bin;%PATH%</code> in windows command line or <br>
+<code>export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH</code> in unix command line.<br>
+4) PostgreSQL server is running at localhost's standart port (5432)
+
 #Instalation
-Download <a href="https://github.com/shtykh/Nekki/blob/master/Nekki-1.0.jar">executable jar</a> from project.
-
-The application assumes you have PostgreSQL installed and also have a postgres database and postgres superuser in there.
-
-Use init.sh (init.bat) script inside the jar to create user *shtykhnekki_user*, database *shtykhnekki* and table *entry* in it for application needs. If you allready have it, you gonna have bad time.
-
+1) Download <a href="https://github.com/shtykh/Nekki/blob/master/Nekki-1.0.jar">executable jar</a> from project. <br>
+2) Extract *init.sh*(*init.bat* in windows) and *init.sql* files <ins>to the same</ins> directory. 
+3) Run *init.sh*(*init.bat* in windows) to create user *shtykhnekki_user*, database *shtykhnekki* and table *entry* in it for application needs (I really hope you did not name objects in your database so strange).
 
 # Input file format
 ```xml
 <Entry>
   <!-- Content is a string no longer then 1024 -->
-  <content>
-    Ignota similique persequeris eos ne. Cu dicat commune disputando sit, vis laudem fabellas no.
-  </content>
+  <content>Ignota similique persequeris eos ne.</content>
   <!-- Date in DATE_FORMAT -->
-  <creationDate>
-    2014-01-01 00:00:00
-  </creationDate>
+  <creationDate>2014-01-01 00:00:00</creationDate>
 </Entry>
 ```
 You can change *DATE_FORMAT* in nekki.properties (see below).
